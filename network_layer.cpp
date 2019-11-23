@@ -58,8 +58,10 @@ void Network_Layer:: from_network_layer(simulated_packet *p)
 		case 6: chosen_tests = test_case6; break;
 		case 7: chosen_tests = test_case7; break;
 	}
-	p->pack.data[0] = chosen_tests[count++];
-	p->pack.data[1] = chosen_tests[count++];
-	p.successfuly_sent = successfuly_sent[count / 2]
+	p->pack.data[0] = chosen_tests[count];
+	count = (count + 1) % 18;
+	p->pack.data[1] = chosen_tests[count];
+	count = (count + 1) % 18;
+	p.successfuly_sent = successfuly_sent[count / 2];
 
 }
