@@ -5,6 +5,13 @@ using namespace std;
 
 char test_case0[] = "C0C1C2C3C4C5C6C7C8";
 char test_case1[] = "S0S1S2S3S4S5S6S7S8";
+char test_case2[] = "A0A1A2A3A4A5A6A7A8";
+char test_case3[] = "D0D1D2D3D4D5D6D7D8";
+char test_case4[] = "W0W1W2W3W4W5W6W7W8";
+char test_case5[] = "Z0Z1Z2Z3Z4Z5Z6Z7Z8";
+char test_case6[] = "Q0Q1Q2Q3Q4Q5Q6Q7Q8";
+char test_case7[] = "X0X1X2X3X4X5X6X7X8";
+bool successfuly_sent[] = { true, false, true, true, true, false, true,false,true };
 int* Network_Layer::chosen_test_case;
 int* Network_Layer::Network_layer_enabled ;
 
@@ -53,4 +60,6 @@ void Network_Layer:: from_network_layer(simulated_packet *p)
 	}
 	p->pack.data[0] = chosen_tests[count++];
 	p->pack.data[1] = chosen_tests[count++];
+	p.successfuly_sent = successfuly_sent[count / 2]
+
 }
