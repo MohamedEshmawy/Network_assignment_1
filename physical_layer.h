@@ -5,6 +5,8 @@
 
 #include "event_queue.h"
 
+using namespace std;
+
 #include <queue>
 
 class Physical_Layer

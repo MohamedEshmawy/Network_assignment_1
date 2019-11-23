@@ -8,15 +8,13 @@
 #include <thread>
 #include <vector>
 
-using namespace std;
-
-void Physical_Layer::physical(bool isServer, int port = 8080)
+void Physical_Layer::physical(bool isServer, int port)
 {
     int sockfd, newsockfd;
     socklen_t clilen;
     struct sockaddr_in serv_addr, cli_addr;
 
-    int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
     /* setup the host_addr structure for use in bind call */
     // server byte order
@@ -81,7 +79,7 @@ void Physical_Layer::physical(bool isServer, int port = 8080)
     close(sockfd);
 }
 
-void Physical_Layer::to_physical_layer(frame *f, int delay = 0)
+void Physical_Layer::to_physical_layer(frame *f, int delay)
 {
     if (!Physical_Layer::sent_frames.empty())
     {
