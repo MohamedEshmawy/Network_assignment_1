@@ -35,10 +35,6 @@ typedef struct
     packet info;     /* the network layer packet */
 } frame;
 
-/* Go get an inbound frame from the physical layer and copy it to r. */
-void from_physical_layer(frame *r);
-/* Pass the frame to the physical layer for transmission. */
-void to_physical_layer(frame *s);
 /* Start the clock running and enable the timeout event. */
 void start_timer(seq_nr k);
 /* Stop the clock and disable the timeout event. */
