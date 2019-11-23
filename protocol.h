@@ -2,6 +2,7 @@
 #define PROTOCOL_H
 
 #define MAX_PKT 2            /* determines packet size in bytes */
+#define MAX_FRAMES_NUM 10
 typedef unsigned int seq_nr; /* sequence or ack numbers */
 typedef struct
 {
