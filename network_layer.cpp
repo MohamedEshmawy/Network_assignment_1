@@ -62,6 +62,7 @@ void Network_Layer:: from_network_layer(simulated_packet *p)
 	count = (count + 1) % 18;
 	p->pack.data[1] = chosen_tests[count];
 	count = (count + 1) % 18;
+	p->pack.data[2] = '/0';
 	p.successfuly_sent = successfuly_sent[count / 2];
 
 }

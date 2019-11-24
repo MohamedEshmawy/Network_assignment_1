@@ -2,15 +2,16 @@
 #define PROTOCOL_H
 
 #define MAX_PKT 2            /* determines packet size in bytes */
-#define MAX_FRAMES_NUM 10
+#define MAX_SEQ 7
+#define ACK_TIME_OUT 50
 typedef unsigned int seq_nr; /* sequence or ack numbers */
 typedef struct
 {
-    unsigned char data[MAX_PKT];
+    unsigned char data[MAX_PKT+1];
 } packet; /* packet definition */
 typedef struct
 {
-    packet p;
+    packet pack;
     int delay;
     bool successfuly_sent;
 } simulated_packet; /* packet definition */
@@ -36,18 +37,11 @@ typedef struct
     packet info;     /* the network layer packet */
 } frame;
 
-/* Start the clock running and enable the timeout event. */
-void start_timer(seq_nr k);
-/* Stop the clock and disable the timeout event. */
-void stop_timer(seq_nr k);
-/* Start an auxiliary timer and enable the ack timeout event. */
-void start_ack_timer(void);
-/* Stop the auxiliary timer and disable the ack timeout event. */
-void stop_ack_timer(void);
+
 
 /* Macro inc is expanded in-line: increment k circularly. */
 #define inc(k)       \
-    if (k < MAX SEQ) \
+    if (k < MAX_SEQ) \
         k = k + 1;   \
     else             \
         k = 0
