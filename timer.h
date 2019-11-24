@@ -15,6 +15,8 @@ public:
 	/* stops timer associated with the specified seq number */
 	static void stop_timer(seq_nr k);
 
+	static void stop_all_timers();
+
 private:
 	/*
 		set containing timers seq numbers

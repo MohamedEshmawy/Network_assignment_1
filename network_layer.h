@@ -38,7 +38,7 @@ private:
 	static void init();
 
 
-	static int* chosen_test_case;
+	static int chosen_test_case;
 
 
 };

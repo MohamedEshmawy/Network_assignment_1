@@ -22,6 +22,13 @@ void timer::start_timer(seq_nr s, int time)
 void timer::stop_timer(seq_nr k)
 {
     set<seq_nr>::iterator it=timers.find(k);
-    timers.erase (it);
+    if (it != timers.end())
+        timers.erase (it);
 }
+
+void timer::stop_all_timers()
+{
+    timers.clear();
+}
+
 

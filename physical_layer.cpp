@@ -91,7 +91,7 @@ void Physical_Layer::physical(bool isServer, int port)
     {
         assert(bind(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) >= 0);
 
-        listen(sockfd, 5);
+        listen(sockfd, 50);
 
 
         clilen = sizeof(cli_addr);
@@ -128,7 +128,7 @@ void Physical_Layer::to_physical_layer(frame *f, int delay)
 
     frame x = *f;
     int d = delay;
-    std::this_thread::sleep_for(std::chrono::milliseconds(d));
+    //std::this_thread::sleep_for(std::chrono::milliseconds(d));
     send(sockfd, (char*)(&x), sizeof(x), 0);
 }
 

@@ -1,9 +1,18 @@
 #ifndef PROTOCOL_H
 #define PROTOCOL_H
 
+
+
+
+
+
+
+
 #define MAX_PKT 2            /* determines packet size in bytes */
 #define MAX_SEQ 7
-#define ACK_TIME_OUT 50
+#define SEND_INTERVAL 1000
+#define ACK_TIME_OUT 4000
+#define MAX_FRAMES_NUM 10
 typedef unsigned int seq_nr; /* sequence or ack numbers */
 typedef struct
 {
@@ -27,7 +36,8 @@ typedef enum
     cksum_err,
     timeout,
     network_layer_ready,
-    ack_timeout
+    ack_timeout,
+    connection_established
 } event_type;
 typedef struct
 {
