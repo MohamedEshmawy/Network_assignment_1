@@ -20,10 +20,10 @@ public:
 	/*
 			returns the head of the received frames queue and pops the queue
 		*/
-	static frame* from_physical_layer();
+	static frame from_physical_layer();
 
 	/*
-			either creates or connects to a local tcp socket given its port 
+			either creates or connects to a local tcp socket given its port
 			and contains a while loop in which it listens to data from the other side
 			it pushes the data received in the recevied frames queue
 		*/
@@ -34,7 +34,8 @@ private:
 		queue containing received frames
 	*/
 	static queue<frame> received_frames;
-	static queue<pair<frame, int>> sent_frames;
+	//static queue<pair<frame, int>> sent_frames;
+	static int sockfd, newsockfd;
 
 };
 
